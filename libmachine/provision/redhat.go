@@ -152,14 +152,14 @@ func (provisioner *RedHatProvisioner) Provision(swarmOptions swarm.Options, auth
 	}
 
 	// update OS -- this is needed for libdevicemapper and the docker install
-	if _, err := provisioner.SSHCommand("sudo -E yum -y update -x docker-*"); err != nil {
-		return err
-	}
+	//if _, err := provisioner.SSHCommand("sudo -E yum -y update -x docker-*"); err != nil {
+	//	return err
+	//}
 
 	// install docker
-	if err := installDocker(provisioner); err != nil {
-		return err
-	}
+	//if err := installDocker(provisioner); err != nil {
+	//	return err
+	//}
 
 	if err := mcnutils.WaitFor(provisioner.dockerDaemonResponding); err != nil {
 		return err
@@ -175,7 +175,7 @@ func (provisioner *RedHatProvisioner) Provision(swarmOptions swarm.Options, auth
 		return err
 	}
 
-	err = configureSwarm(provisioner, swarmOptions, provisioner.AuthOptions)
+	//err = configureSwarm(provisioner, swarmOptions, provisioner.AuthOptions)
 	return err
 }
 
